@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+    <style>
+        *{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        img{
+            width: 100%;
+            height: 400px
+        }
+        .content{
+            margin-bottom: 30px;
+        }
+        .features,.product-details{
+            margin-bottom: 30px;
+        }
+        .features{
+            border-top: 1px solid rgb(203, 203, 204);
+            border-bottom: 1px solid  rgb(203, 203, 204);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .two-column {
+            column-count: 2;
+            column-gap: 20px;
+        }
+        button{
+            background-color: black;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            font-size: large;
+            font-weight:600;
+        }
+        .days{
+            margin-top: 30px;
+            /* text-align: center; */
+            /* font-weight: 00px; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .days>img{
+            width: 30px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById("root")
+        function Element() {
+            function btn() {
+                return (
+                   alert("Added to Cart !")
+                )
+
+            }
+            return (
+                <>
+                    <div className="container">
+                        <div>
+                            <img src="/Sprint1/D1/Screenshot 2024-07-31 225118.png" alter="watch" />
+                        </div>
+                        <div className="content">
+                            <h1>
+                            Automatic Watch
+                        </h1>
+                        <h2>
+                            $350.00 USD
+                        </h2>
+                        <p style = {{fontSize : '25px', color:'rgb(204, 203, 201)'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aspernatur magni dolorem aut ipsum explicabo?</p>
+                        <p style = {{fontSize : '20px'}}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil eum perferendis sit doloribus, officiis maiores nobis, ratione quidem dolore ducimus, quaerat commodi eaque necessitatibus? Ipsa necessitatibus commodi quasi deleniti aliquid?</p>
+                        
+                            </div>
+
+
+                        <div class="features">
+                            <h2 style = {{ color: '#d4a017', fontWeight : '400'}}>Features</h2>
+                            <ul class="two-column">
+                                <li>Chronograph</li>
+                                <li>Anti-magnetic</li>
+                                <li>Master Chronometer Certified</li>
+                                <li>Chronometer</li>
+                                <li>Tachymeter</li>
+                                <li>Small seconds</li>
+                            </ul>
+                        </div>
+                        <div class="product-details">
+                            <h2 style = {{ color: '#d4a017',fontWeight : '400'}}>Product Details</h2>
+                            <ul>
+                                <li><b>Between lugs:</b> 20 mm</li>
+                                <li><b>Bracelet:</b> leather strap</li>
+                                <li><b>Case:</b> Steel</li>
+                                <li><b>Case diameter:</b> 42 mm</li>
+                                <li><b>Dial color:</b> Black</li>
+                                <li><b>Crystal:</b> Domed, scratch-resistant sapphire crystal with anti-reflective treatment inside</li>
+                                <li><b>Water resistance:</b> 5 bar (50 metres / 167 feet)</li>
+                            </ul>
+                        </div>
+                        <button onClick={btn}>ADD TO CART</button>
+                        <div className="days"><img src = "/Sprint1/D1/Screenshot 2024-07-31 230938.png"/>
+                            2-3 business days delivery </div>
+                    </div>
+
+                </>
+            )
+
+        }
+
+        ReactDOM.render(<Element />, root)
+    </script>
+</body>
+
+</html>

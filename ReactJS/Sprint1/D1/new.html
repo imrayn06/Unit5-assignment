@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sans-serif-midnightblue {
+            font-family: sans-serif;
+            color: midnightblue;
+        }
+
+        .open-sans {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: rgb(79, 22, 60);
+        }
+        .Navy{
+            color: navy;
+        }
+        .Teal{
+            color: teal;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+    // function CartPage() {
+    //     return (<div>
+    //         <h2>Hello World</h2></div>)
+
+    // }
+
+    function CartPage() {
+        let fruits = ["apple","orange","grapes"]
+        let nameOfList = "list"
+
+        return (
+            <ol>
+            {
+                fruits.map((ele , i)=>{
+                    return (<li className={i%2 ? "Navy" : "Teal"}>{ele}</li>)
+                })
+            }
+
+            </ol>
+        )
+    }
+
+    let container = ReactDOM.createRoot(document.getElementById("container"));
+    container.render(<CartPage />)
+
+
+</script>
+
+</html>
