@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components in React</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .heading1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .element2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            width: 100%;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .item {
+            background-color: #82ecbc;
+            border-radius: 8px;
+            text-align: center;
+            width: 35px;
+            height: 35px;
+            color: #167a4d;
+            font-weight: 600;
+
+        }
+
+
+        .element3,
+        .element4 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            width: 100%;
+            gap: 20px;
+            padding-left: 10px;
+
+        }
+
+        .element4 {
+            text-align: center;
+            color: #757977;
+            font-weight: 500;
+            /* background-color: aliceblue; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        let comp1 = ["Getting started in", "3 easy steps"];
+        let comp2 = ["01", "02", "03"];
+        let comp3 = ["Find your template", "Copy the code", "Enjoy your free time"];
+        let comp4 = ["Every template is embedded within an iframe, so you can easily check what they look like and test the responsive behaviour.", "Click the code tab to see the actual source code of the template. Copy and paste it into your project and adjust it to your needs.", "You've just saved yourself a bunch of time not building the same stuff over and over again. Enjoy your free time, and build business features"];
+
+        function Page({ children }) {
+            return (
+                <div >
+                    {children}
+                </div>
+            );
+        }
+
+        function Heading1({ texts }) {
+            return (
+                <Page>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        {texts.map((text, index) => (
+                            <h1 className="heading1" style={index === 1 ? { margin: 0, padding: 0, color: "#17e689" } : {}} key={index}>
+                                {text}</h1>
+                        ))}
+                    </div>
+
+                </Page>
+            );
+        }
+
+        function Element2({ texts }) {
+            return (
+                <Page>
+                    <div className="element2">
+                        {texts.map((text) => (
+                            <div className="item">
+                                <p>{text}</p>
+                            </div>
+                        ))}
+                    </div>
+                </Page>
+            );
+        }
+
+        function Element3({ texts }) {
+            return (
+                <Page>
+                    <div className="element3">
+                        {texts.map((text) => (
+
+                            <h2>{text}</h2>
+
+                        ))}
+                    </div>
+                </Page>
+            );
+        }
+
+        function Element4({ texts }) {
+            return (
+                <Page>
+                    <div className="element4">
+                        {texts.map((text) => (
+                            <p>{text}</p>
+                        ))}
+                    </div>
+                </Page>
+            );
+        }
+
+        const App = () => {
+            return (
+                <div style={{ backgroundColor: "aliceblue" }}>
+                    <Heading1 texts={comp1} />
+                    <Element2 texts={comp2} />
+                    <Element3 texts={comp3} />
+                    <Element4 texts={comp4} />
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components in React</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            
+           
+            
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content:space-around;
+            padding: 20px;
+        }
+
+        .gap-160 {
+            gap: 130px;
+            /* color:rgb(151, 79, 233); */
+        }
+        .beta1,.beta2,.beta3{
+            border-top: 1px solid rgb(236, 222, 222) ;
+        }
+        button{
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: rgb(151, 79, 233);
+        }
+        .bluBtn>button{
+            background-color: rgb(151, 79, 233);
+            color: white;
+        }
+        div.specific-text{
+            font-weight: bold;
+            font-size:xx-large;
+            font-weight: 900;
+            
+        } 
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+
+        let arr1 = ["The Right Plan for", "Your Business"]
+        let arr2 = ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quod in iure vero. Facilis magnam, sed officiis commodi labore odit."]
+        let arr3 = ["Starter"]
+        let arr4 = ["Lorem Plus"]
+        let arr5 = ["Lorem Pro"]
+        let arr6 = ["ipsum lorem1", "Lorem, ipsum dolor.", "Monthly Updates"]
+        let arr7 = ["Free"]
+        let arr8 = ["$32.00"]
+        let arr9 = ["$50.00"]
+        
+
+
+        function Page({ children }) {
+            return (
+                <div>
+                    {children}
+                </div>
+            )
+
+        }
+        function Component1({ texts }) {
+            return (
+                <Page>
+                    <div style={{ alignItems: "center", justifyContent: "center" }}>
+                        {texts.map((text, index) => (
+                            <h1 className="heading1" style={index === 1 ? { margin: 0, padding: 0, color: "rgb(151, 79, 233)" } : {}} key={index}>
+                                {text}</h1>
+                        ))}
+                    </div>
+
+                </Page>
+            );
+        }
+
+        function Component2({ texts }) {
+            return (
+                <Page>
+                    <div>
+                        {texts.map((text) => (
+                            <p>{text}</p>
+                        ))}
+                    </div>
+
+
+                </Page>
+            )
+
+        }
+        function TextComponent({ texts,style }) {
+            return (
+                <Page>
+                    <div style={style}>
+                        {texts.map((text, index) => (
+                            <p key={index}>{text}</p>
+                        ))}
+                    </div>
+                </Page>
+            )
+        }
+        function Btn(){
+            return(
+                <button>Get Started</button>
+            )
+        }
+        function Tick({image}) {
+            return(
+                <img src="/assD2/Screenshot 2024-08-01 235733.png" alt=""/>
+            )
+            
+        }
+        const App = () => {
+            return (
+                <div>
+                    <div className="flex-center parent">
+                        <div style={{width : "500px", textAlign:"center"}}>
+                            <Component1 texts={arr1} />
+                        </div>
+                        <div  style={{width : "600px",textAlign:"justify"}}>
+                            <Component2 texts={arr2} />
+                        </div>
+
+                    </div>
+                    <div className="flex-center gap-160 beta1">
+                        <TextComponent style={{ fontSize : "large", fontWeight : "900"}} texts={arr3} />
+                        
+                        <TextComponent texts={arr6} />
+                        <TextComponent style={{ fontSize : "xx-large", fontWeight : "900"}} texts={arr7} />
+                        <Btn/>
+                    </div>
+                    <div className="flex-center gap-160 beta2 bluBtn">
+                        <TextComponent style={{ fontSize : "large", fontWeight : "900"}} texts={arr4} />
+                        <TextComponent texts={arr6} />
+                        <TextComponent style={{ fontSize : "xx-large", fontWeight : "900"}} texts={arr8} />
+                        <Btn/>
+                    </div>
+                    <div className="flex-center gap-160 beta3">
+                        <TextComponent style={{ fontSize : "large", fontWeight : "900"}} texts={arr5} />
+                        <TextComponent texts={arr6} />
+                        <TextComponent style={{ fontSize : "xx-large", fontWeight : "900"}} texts={arr9} />
+                        <Btn/>
+                    </div>
+                </div>
+            )
+        }
+        const root = ReactDOM.createRoot(document.getElementById("root"))
+        root.render(<App />)
+    </script>
+</body>
+
+</html>
